@@ -32,9 +32,11 @@ jobs:
         DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        echo "New version: $NEW_VERSION !!!!!!!!!!!"
         docker login -u $DOCKER_USER -p $DOCKER_PASS
+        echo "New version: " $NEW_VERSION
 
+
+        
     # - name: Build docker image
     #   run: |
     #     docker build -t royssmartel/docker-graphql:0.0.2 .
