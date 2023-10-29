@@ -26,6 +26,14 @@ jobs:
         echo "Iniciando login" "$DOCKER_USER"
         docker login -u $DOCKER_USER -p $DOCKER_PASS
         echo "Finalizando login"
+
+    - name: Build docker image
+      run: |
+        docker build -t royssmartel/docker-graphql:0.0.2 .
+
+    - name: Push docker image
+      run: |
+        docker push royssmartel/docker-graphql:0.0.2 .
         
     
 #- name: Build the Docker image 
